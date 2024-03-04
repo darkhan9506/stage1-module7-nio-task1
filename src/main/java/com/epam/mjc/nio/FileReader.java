@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
 
 
 public class FileReader {
@@ -23,7 +24,7 @@ public class FileReader {
             buffer.flip();
 
             // Now let's convert this ByteBuffer to String
-            String converted = new String(buffer.array(), "UTF-8");
+            String converted = new String(buffer.array(),  StandardCharsets.UTF_8);
             String[] lines = converted.split("\n", 5);
 
             String[] nameArr = lines[0].split(":",2);
